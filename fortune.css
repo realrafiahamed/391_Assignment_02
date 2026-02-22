@@ -1,0 +1,51 @@
+body {
+    background-color: #f6efef;
+    font-family: Arial;
+    text-align: center;
+}
+
+.btn{
+    display: block;
+    margin-left: 620px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.fortune-container {
+    width: 80%;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fortuneBox {
+    flex: 1;
+    padding: 15px;
+    border: 3px solid green;
+    background-color: #fff4a3;
+    font-size: 18px;
+}
+
+.color-buttons {
+    display: grid;
+    grid-template-columns: 35px 35px;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.color {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+}

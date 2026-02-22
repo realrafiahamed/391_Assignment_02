@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Assignment</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .circle {
+            width: 200px;
+            height: 200px;
+            border: 8px solid #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+        #timer {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 15px;
+            cursor: pointer;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stopwatch (3S Steps)</h1>
+    <div class="circle">
+        <div id="timer">0</div>
+    </div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        let time = 0;          
+        let intervalId = null; 
+        const timerDisplay = document.getElementById('timer');
+        const startBtn = document.getElementById('start');
+        const stopBtn = document.getElementById('stop');
+        const resetBtn = document.getElementById('reset');
+        function updateTimer() {
+            if (time<30) {
+                time+=3;
+                timerDisplay.textContent = time;
+            } else {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+        startBtn.addEventListener('click', () => {
+            if (!intervalId) {
+                intervalId = setInterval(updateTimer, 1000);
+            }
+        });
+        stopBtn.addEventListener('click', () => {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+        resetBtn.addEventListener('click', () => {
+            clearInterval(intervalId);
+            intervalId = null;
+            time = 0;
+            timerDisplay.textContent = time;
+        });
+    </script>
+    <br>
+    <button class = "button" onclick="window.location.href='index.html'">Back to Main Menu</button><br>
+     <footer>© 2026 My Stopwatch JS Project <br>
+        Rafi Ahamed, All rights reserved. </footer>
+</body>
+</html>
